@@ -1,0 +1,8 @@
+frames
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.json
+.DS_Store
+*.sb
