@@ -11,7 +11,10 @@ print("Imported")
 BASE = """
 ' Adaptive OpenCV to ASCII/UTF-8 Charecters + Translation to SmallBasic
 ' I used https://software-solutions-online.com/vba-escape-characters/ for finding terminal attribute charecters
+' Github: https://github.com/Ow1e/ICS-1-01 
 ' Notes: Windows Terminal has a weird font so charecters are compressed
+
+TextWindow.Title = "OpenCV / ASCII Explorer"
 
 ' This is the Char for a new line break
 NEW_LINE = Text.GetCharacter(10)
@@ -21,10 +24,8 @@ NEW_LINE = Text.GetCharacter(10)
 Sub RunFrame
     i = 1
     l = 0
-    While l < 10
-        TextWindow.Write(NEW_LINE)
-        l = l+1
-    EndWhile
+    TextWindow.CursorLeft = 0
+    TextWindow.CursorTop = 0
     While i < Text.GetLength(frame)
         char = Text.GetSubText(frame, i, 1)
         If char = "R" Then
@@ -45,7 +46,9 @@ Sub RunFrame
             TextWindow.ForegroundColor = "lightgrey"
         ElseIf char = "N" Then
             TextWindow.ForegroundColor = ""
-            TextWindow.Write(NEW_LINE)
+            l = l+1
+            TextWindow.CursorTop = l
+            TextWindow.CursorLeft = 0
         Else
             TextWindow.Write(char)
         EndIf
@@ -81,8 +84,9 @@ frames = []
 ends = []
 
 for n, i in enumerate(data["frames"]):
+    print(n)
     frames.append(f'frame{n} = "{strip_ansi(replace_frame(i["text"]))}"\n')
-    ends.append(f"frame = frame{n}\nRunFrame()\nProgram.Delay(33)\n")
+    ends.append(f"frame = frame{n}\nRunFrame()\n")
 
 frames_str = ""
 for i in frames:

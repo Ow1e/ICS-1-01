@@ -8,7 +8,7 @@ Thx https://levelup.gitconnected.com/how-to-convert-an-image-to-ascii-art-with-p
 I did some changes to this for colour support, typos and other stuff
 """
 
-ascii_characters_by_surface = "`^,:;Il!i~+_-?][}{1)(|\\/tfjrxuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+ascii_characters_by_surface = "#$@&"
 
 KEYS = {
     "rgb": "\u001b[47;1m\u001b[37;1m",

@@ -14,5 +14,4 @@ for n, i in enumerate(data["frames"]):
     for l in i["text"]:
         text += l+"\n"
     sleep(1/FPS)
-    print(text, end="\n")
-    print(str(i["depth"])+f" Light Depth, {FPS} FPS, Frame num {n}, {FPS/NATIVE}x speed")
+    print("\n"+text, end="")

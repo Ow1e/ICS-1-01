@@ -5,7 +5,7 @@ from tqdm import tqdm
 from time import sleep
 import os
 
-SLICE = 7
+SLICE = 5
 
 def vidtrans(vidcap):
     success = True
